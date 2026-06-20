@@ -60,6 +60,20 @@ cp "$SOURCE_DIR/AGENTS.md" "$TARGET/GEMINI.md"
 echo "  ✅ Global AGENTS.md deployed successfully."
 echo "  ✅ Global GEMINI.md deployed successfully (official filename)."
 echo "  ✅ Global skills deployed successfully."
+
+# Setup Git post-merge hook to automate syncing across machines
+if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    GIT_DIR="$(git rev-parse --git-dir)"
+    HOOKS_DIR="$GIT_DIR/hooks"
+    mkdir -p "$HOOKS_DIR"
+    
+    if [ -f "$SCRIPT_DIR/scripts/post-merge" ]; then
+        cp "$SCRIPT_DIR/scripts/post-merge" "$HOOKS_DIR/post-merge"
+        chmod +x "$HOOKS_DIR/post-merge"
+        echo "  ✅ Git post-merge hook automated sync configured."
+    fi
+fi
+
 echo ""
 echo "============================================================"
 echo "  Your Antigravity agent is now upgraded!"

@@ -22,7 +22,7 @@ Whenever you set up a new laptop or want to verify if your global `AGENTS.md` ru
 > 4. Read the file you just created to verify its contents.
 > 5. Self-Reflect: Did you successfully find citations for both numbers? Did you successfully write and read the file?
 > 6. Delete the temporary file `framework_comparison.txt` so my system stays clean.
-> 7. (Memory Sync Test) Append a one-sentence summary of the test results to the `SESSION_LOG.md` file in this repository, then run the terminal commands to commit and push the repository to GitHub.
+> 7. (Memory Sync Test) Append a one-sentence summary of the test results to the `./SESSION_LOG.md` file at the root of the active workspace, then run the terminal commands relative to the active workspace directory to commit and push the repository to GitHub.
 > 
 > **Constraints:**
 > - You MUST show your reasoning before every single tool call.
@@ -40,6 +40,6 @@ If your agent is fully upgraded with your Global Rules and Workspace Rules, it s
 3. **Citations:** It will provide `[1]` format citations for the developer statistics.
 4. **Discipline:** It will clean up after itself by deleting the scratch file it made.
 5. **Language Control:** The response will be in perfect English.
-6. **Memory Sync:** It will successfully append to your `SESSION_LOG.md` file and execute a `git push` in the background.
+6. **Memory Sync:** It will successfully append to `./SESSION_LOG.md` and execute `git push` in the background, operating correctly within the active workspace root (without creating sibling folders).
 
 If the agent attempts to answer the prompt *without* executing any tool calls, the test **FAILS**. This means the agent has reverted to a raw LLM and your rules are not loaded.

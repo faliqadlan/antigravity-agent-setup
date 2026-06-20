@@ -1,0 +1,24 @@
+#!/bin/bash
+# ============================================================
+# Git Post-Merge Hook for Antigravity Agent Configuration
+# ============================================================
+# This script runs automatically after a successful 'git pull' or 'git merge'.
+# It executes setup.sh to deploy any updated rules and skills.
+# ============================================================
+
+REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+
+echo ""
+echo "============================================================"
+echo "🔔 Git Pull/Merge detected. Syncing Antigravity Config..."
+echo "============================================================"
+
+if [ -f "$REPO_DIR/setup.sh" ]; then
+    chmod +x "$REPO_DIR/setup.sh"
+    "$REPO_DIR/setup.sh" --non-interactive
+else
+    echo "⚠️ Warning: setup.sh not found at $REPO_DIR"
+fi
+
+echo "============================================================"
+echo ""

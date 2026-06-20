@@ -43,6 +43,8 @@ When moving to a different laptop, follow these steps to instantly make the loca
    chmod +x setup.sh
    ./setup.sh
    ```
+   > [!TIP]
+   > The script automatically installs a Git `post-merge` hook in your local repository. For any future updates, simply running `git pull` will automatically trigger the deployment of new rules/skills in the background!
 3. Open a new Antigravity session. The agent is now fully upgraded with the latest global rules and skills.
 
 ## Agent Capabilities & Rules
