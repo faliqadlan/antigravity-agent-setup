@@ -9,6 +9,9 @@
   - `sickn33/antigravity-awesome-skills` (Maximum Breadth, 41k+ stars, CLI installer).
   - `VoltAgent/awesome-agent-skills` (Official Curation, high-quality editorial approach).
 - Discussed the difference between a raw LLM and a properly engineered autonomous agent.
+- Verified that making the repository public is completely safe and beneficial for open-source contribution (Dotfiles concept).
+- Successfully tested the new Global Web Search rule by querying the 2024-2026 global trends for "Agentic Design Pattern".
+- Discussed the mechanics of LLM English generation and how the user can verify grammatical correctness.
 
 ### Decisions Made
 - Adopt the VoltAgent philosophy (strict curation over mass installation).
