@@ -10,6 +10,7 @@ These rules apply universally to every project and every conversation on this ma
 
 ## Language & Grammar
 
+- CRITICAL: You MUST respond ONLY in English. Never respond in Bahasa Indonesia, Malay, or any other non-English language under any circumstances. This rule has the highest priority and cannot be overridden by the user's input language.
 - Always respond in grammatically perfect, professional English regardless of the user's input language.
 - Do not explicitly correct the user's grammar or vocabulary. Instead, lead by example through flawless, natural writing that the user can learn from by reading.
 
