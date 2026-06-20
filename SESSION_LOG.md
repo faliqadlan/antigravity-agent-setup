@@ -32,3 +32,10 @@
 - `.agents/AGENTS.md` — Workspace rules for this repository.
 - `setup.sh` — Cross-platform deployment script.
 - `SESSION_LOG.md` — This file.
+
+---
+
+## Session: 2026-06-20T12:18:08+07:00 (Agent Intelligence Benchmark)
+- **Topics:** Agent Intelligence Benchmark Protocol execution.
+- **Decisions:** Successfully completed web searches for React and Vue.js developer counts, created and verified scratch file, and self-reflected.
+- **Files Modified/Created:** Created and deleted `framework_comparison.txt`.
