@@ -49,7 +49,25 @@ Individuals who hate clutter. If you just want the 50 best, guaranteed-to-work t
 
 ---
 
+## Practical Usage Comparison (How to actually use them)
+
+The biggest difference between these repositories is how you actually install the skills into your AI agent:
+
+### How to use `sickn33/antigravity-awesome-skills`:
+**Method:** Fully Automated (Package Manager style)
+*   You do not need to manually copy and paste text.
+*   You run a command in your terminal like `npx antigravity-awesome-skills --antigravity`.
+*   The installer automatically downloads the skills you want and injects the `SKILL.md` files directly into your project's `.agents/skills` folder.
+
+### How to use `VoltAgent` and `karanb192`:
+**Method:** Manual Copy-Paste (Reference Directory style)
+*   There is no auto-installer. These repositories act as giant bookmark lists.
+*   You go to their GitHub page and browse the list of skills.
+*   When you find a skill you like (e.g., a Next.js security playbook), you click the link, read the raw Markdown text, and **manually copy-paste** the instructions into your own project's rules file (like `.cursorrules` or `.agents/SKILL.md`).
+
+---
+
 ## Final Conclusion
-*   If you want **Scale & Easy Installation** -> `sickn33/antigravity-awesome-skills`
-*   If you want **Official Company Playbooks** -> `VoltAgent/awesome-agent-skills`
-*   If you want **Zero Clutter & Strict Verification** -> `karanb192/awesome-claude-skills`
+*   If you want **Scale & Easy Automated Installation** -> `sickn33/antigravity-awesome-skills`
+*   If you want **Official Company Playbooks (Manual Copy-Paste)** -> `VoltAgent/awesome-agent-skills`
+*   If you want **Zero Clutter & Strict Verification (Manual Copy-Paste)** -> `karanb192/awesome-claude-skills`
