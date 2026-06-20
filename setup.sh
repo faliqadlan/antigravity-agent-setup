@@ -48,10 +48,17 @@ fi
 # Create the target directory if it does not exist
 mkdir -p "$TARGET"
 
-# Copy global rules and skills
+# Copy global rules and skills to ~/.gemini/config/
 cp -r "$SOURCE_DIR"/* "$TARGET/"
 
+# Also deploy as GEMINI.md (the official global rules filename for Antigravity)
+# Some Antigravity surfaces read from ~/.gemini/GEMINI.md instead of ~/.gemini/config/AGENTS.md
+GEMINI_ROOT="$(dirname "$TARGET")"
+cp "$SOURCE_DIR/AGENTS.md" "$GEMINI_ROOT/GEMINI.md"
+cp "$SOURCE_DIR/AGENTS.md" "$TARGET/GEMINI.md"
+
 echo "  ✅ Global AGENTS.md deployed successfully."
+echo "  ✅ Global GEMINI.md deployed successfully (official filename)."
 echo "  ✅ Global skills deployed successfully."
 echo ""
 echo "============================================================"
