@@ -30,6 +30,16 @@ else
     TARGET="$HOME/.gemini/config"
 fi
 
+# Detect WSL and set a secondary Windows target
+WINDOWS_TARGET=""
+if grep -qiE "(microsoft|wsl)" /proc/version 2>/dev/null; then
+    # Running inside WSL — also deploy to the Windows user's .gemini/config
+    WINDOWS_USER=$(cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r')
+    if [ -n "$WINDOWS_USER" ]; then
+        WINDOWS_TARGET="/mnt/c/Users/$WINDOWS_USER/.gemini/config"
+    fi
+fi
+
 echo "============================================================"
 echo "  Antigravity Global Config Deployment"
 echo "============================================================"
@@ -60,6 +70,16 @@ cp "$SOURCE_DIR/AGENTS.md" "$TARGET/GEMINI.md"
 echo "  ✅ Global AGENTS.md deployed successfully."
 echo "  ✅ Global GEMINI.md deployed successfully (official filename)."
 echo "  ✅ Global skills deployed successfully."
+
+# Deploy to Windows path if running inside WSL
+if [ -n "$WINDOWS_TARGET" ]; then
+    mkdir -p "$WINDOWS_TARGET"
+    cp -r "$SOURCE_DIR"/* "$WINDOWS_TARGET/"
+    WINDOWS_GEMINI_ROOT="$(dirname "$WINDOWS_TARGET")"
+    cp "$SOURCE_DIR/AGENTS.md" "$WINDOWS_GEMINI_ROOT/GEMINI.md"
+    cp "$SOURCE_DIR/AGENTS.md" "$WINDOWS_TARGET/GEMINI.md"
+    echo "  ✅ Windows Antigravity IDE config deployed to: $WINDOWS_TARGET"
+fi
 
 # Setup Git post-merge hook to automate syncing across machines
 if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then

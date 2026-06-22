@@ -61,3 +61,18 @@
 - `.agents/AGENTS.md` — Added Workspace Session Initialization rule.
 - `global_config/AGENTS.md` — Added conditional Global Workspace Initialization rule.
 - `SESSION_LOG.md` — Appended this session summary.
+
+---
+
+## Session: 2026-06-22 (Fixing WSL Dual-Deployment Gap)
+
+### Topics Discussed
+- Discovered that `setup.sh` was only deploying global configurations to the WSL Linux filesystem (`/home/faliq/.gemini/config/`) and failing to deploy to the Windows Antigravity IDE filesystem (`C:\Users\ASUS\.gemini\config\`).
+
+### Decisions Made
+- Updated `setup.sh` to automatically detect if it is running inside WSL. If so, it dynamically locates the Windows user profile path via `/mnt/c/Users/` and duplicates the deployment there.
+- This ensures that both the command-line agent in WSL and the Antigravity IDE in Windows share the same global rules and VoltAgent skills.
+
+### Files Modified
+- `setup.sh` — Added WSL detection and secondary Windows deployment logic.
+- `SESSION_LOG.md` — Appended this fix summary.
