@@ -28,3 +28,15 @@ These rules apply universally to every project and every conversation on this ma
   2. **Act:** Execute the approved plan step by step.
   3. **Reflect:** Verify the results and summarize what was accomplished.
 - Never silently make major architectural changes without presenting a plan first.
+
+## Workspace Initialization
+
+- At the start of a new conversation session, check whether the workspace root contains a `SESSION_LOG.md` file.
+- If `SESSION_LOG.md` exists:
+  1. Run `git pull` (if the workspace is a Git repository) to sync the latest changes.
+  2. Read `SESSION_LOG.md` to restore context on previous sessions and decisions.
+  3. Read `README.md` (if it exists) to understand the project overview.
+  4. Run `git log -5 --oneline` to see recent commit history.
+  5. Run `git status` to check for uncommitted changes.
+  6. Greet the user with a brief 1-2 line summary of the restored context.
+- If `SESSION_LOG.md` does not exist, skip initialization and respond normally.

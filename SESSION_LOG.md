@@ -39,3 +39,25 @@
 - **Topics:** Agent Intelligence Benchmark Protocol execution.
 - **Decisions:** Successfully completed web searches for React and Vue.js developer counts, created and verified scratch file, and self-reflected.
 - **Files Modified/Created:** Created and deleted `framework_comparison.txt`.
+
+---
+
+## Session: 2026-06-22 (Automating Agent Context Catch-up)
+
+### Topics Discussed
+- Using the `/learn` slash command to add new reusable agent behaviors.
+- How to automatically bring the agent up to speed on the project's history when opening a new conversation.
+- Using `/grill-me` interview to resolve design decisions about verbosity, scope, and auto-deployment.
+
+### Decisions Made
+- Add a "Session Initialization" section to workspace rules (`.agents/AGENTS.md`).
+- Add a conditional "Workspace Initialization" rule to global configurations (`global_config/AGENTS.md`).
+- The agent must always silently run `git pull` before reading the context to ensure synchronization across laptops.
+- At initialization, the agent reads `SESSION_LOG.md`, `README.md`, `git log -5 --oneline`, and `git status`.
+- The agent should only greet the user with a brief 1-2 line summary after restoring context, rather than presenting a verbose detailed readout.
+- Auto-deploy global changes using `setup.sh` immediately.
+
+### Files Modified
+- `.agents/AGENTS.md` — Added Workspace Session Initialization rule.
+- `global_config/AGENTS.md` — Added conditional Global Workspace Initialization rule.
+- `SESSION_LOG.md` — Appended this session summary.

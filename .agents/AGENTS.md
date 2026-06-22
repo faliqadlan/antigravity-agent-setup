@@ -26,3 +26,14 @@ This repository serves as the shared memory and configuration hub for all Antigr
   - Decisions made.
   - Files created or modified.
 - Always commit and push the updated session log alongside other changes.
+
+## Session Initialization
+
+- At the very start of a new conversation session, you MUST perform the following steps automatically (before responding to the user's first message):
+  1. Run `git pull` in the workspace root to sync the latest changes from the remote repository.
+  2. Read `SESSION_LOG.md` to restore context on previous sessions, decisions, and ongoing tasks.
+  3. Read `README.md` to understand the project structure and philosophy.
+  4. Run `git log -5 --oneline` to see the most recent commits.
+  5. Run `git status` to check for any uncommitted changes.
+- After reading, provide a brief 1-2 line greeting that acknowledges the context (e.g., "I've caught up on your session history. Last session covered X. How can I help?").
+- Do NOT present a full detailed summary unless the user explicitly asks for one.
